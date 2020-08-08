@@ -6,18 +6,18 @@ import java.util.Scanner;
 
 public class P14888 {
 
-    private static final Scanner scanner =
-        new Scanner(new BufferedReader(new InputStreamReader(System.in)));
+    private static final Scanner scanner = new Scanner(
+        new BufferedReader(new InputStreamReader(System.in)));
     public static long min = Long.MAX_VALUE;
     public static long max = Long.MIN_VALUE;
 
+    //O(N-1!)
     public static void main(String[] args) {
         int N = Integer.parseInt(scanner.nextLine());
         int[] S = new int[N];
         String[] line = scanner.nextLine().split(" ");
         for (int i = 0; i < N; i++)
             S[i] = Integer.parseInt(line[i]);
-
         int[] ops = new int[N - 1];
         int index = 0;
         for (int op = 0; op < 4; op++) {
@@ -70,5 +70,4 @@ public class P14888 {
         p[i] = p[j];
         p[j] = tmp;
     }
-
 }
