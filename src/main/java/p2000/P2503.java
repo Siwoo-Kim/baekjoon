@@ -11,6 +11,7 @@ public class P2503 {
     private static List<Question> questions = new ArrayList<>();
     private static boolean[] visit = new boolean[10];
 
+    // O(9P3) = 504
     public static void main(String[] args) {
         int N = Integer.parseInt(scanner.nextLine());
         for (int i=0; i<N; i++) {
@@ -23,8 +24,9 @@ public class P2503 {
     }
 
     private static int select(Stack<Integer> stack) {
-        if (stack.size() == 3)
+        if (stack.size() == 3) {
             return check(stack);
+        }
         int result = 0;
         for (int i=1; i<10; i++) {
             if (!visit[i]) {
