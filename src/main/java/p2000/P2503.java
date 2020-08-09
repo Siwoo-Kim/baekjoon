@@ -24,9 +24,8 @@ public class P2503 {
     }
 
     private static int select(Stack<Integer> stack) {
-        if (stack.size() == 3) {
+        if (stack.size() == 3)
             return check(stack);
-        }
         int result = 0;
         for (int i=1; i<10; i++) {
             if (!visit[i]) {
