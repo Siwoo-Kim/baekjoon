@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class P1051 {
-
     private static final Scanner scanner = new Scanner(
             new BufferedReader(new InputStreamReader(System.in)));
     private static int[][] board;

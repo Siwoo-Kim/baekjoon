@@ -5,7 +5,6 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class P2503 {
-
     private static final Scanner scanner = new Scanner(
             new BufferedReader(new InputStreamReader(System.in)));
     private static List<Question> questions = new ArrayList<>();

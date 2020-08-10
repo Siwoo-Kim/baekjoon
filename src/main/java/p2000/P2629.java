@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 
 public class P2629 {
-
     private static int MAX = 15000;
     private static int MAX_MARBLES = 30;
     private static int[] weights;

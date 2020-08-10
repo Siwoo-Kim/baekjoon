@@ -6,7 +6,6 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class P1182 {
-
     private static final Scanner scanner = new Scanner(
             new BufferedReader(new InputStreamReader(System.in)));
     private static int N;
