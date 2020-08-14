@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-// 순열 nCr
+// 조합 nCr
 public class P15650 {
     private static final Scanner scanner = new Scanner(
             new BufferedReader(new InputStreamReader(System.in)));
