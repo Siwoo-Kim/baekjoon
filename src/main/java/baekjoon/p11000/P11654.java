@@ -1,4 +1,4 @@
-package baekjoon.P11000;
+package baekjoon.p11000;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
