@@ -29,7 +29,6 @@ public class P17142 {
         }
 
         List<int[]> batches = combinations(0, M, new Stack<>(), new ArrayList<>());
-
         boolean ok = false;
         int answer = Integer.MAX_VALUE;
         for (int[] batch: batches) {
@@ -112,14 +111,6 @@ public class P17142 {
 
         public boolean valid() {
             return x >= 0 && x < N && y >= 0 && y < N;
-        }
-
-        @Override
-        public String toString() {
-            return "Point{" +
-                    "x=" + x +
-                    ", y=" + y +
-                    '}';
         }
     }
 }
