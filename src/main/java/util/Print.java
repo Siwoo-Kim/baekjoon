@@ -1,4 +1,4 @@
-package baekjoon.util;
+package util;
 
 public class Print {
 
