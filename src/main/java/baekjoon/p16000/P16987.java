@@ -1,65 +1,65 @@
 package baekjoon.p16000;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class P16987 {
-    private static final Scanner scanner = new Scanner(new BufferedReader(new InputStreamReader(System.in)));
+    private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     private static int N;
-    private static Egg[] E;
+    private static Egg[] eggs;
+    private static int answer = 0;
 
-    //O(N^N)
-    public static void main(String[] args) {
-        N = scanner.nextInt();
-        E = new Egg[N];
-        for (int i=0; i<N; i++)
-            E[i] = new Egg(scanner.nextInt(), scanner.nextInt());
-        int answer = bruteForce(0);
+    public static void main(String[] args) throws IOException {
+        N = Integer.parseInt(reader.readLine());
+        eggs = new Egg[N];
+        for (int i=0; i<N; i++) {
+            StringTokenizer token = new StringTokenizer(reader.readLine());
+            eggs[i] = new Egg(Integer.parseInt(token.nextToken()), Integer.parseInt(token.nextToken()));
+        }
+        select(0);
         System.out.println(answer);
     }
 
-    private static int bruteForce(int index) {
-        if (index == N) {
+    private static void select(int index) {
+        if (index == N) { //base case
             int cnt = 0;
-            for (int i=0; i<N; i++)
-                if (E[i].hp <= 0)
+            for (int i=0; i < eggs.length; i++) {
+                if (eggs[i].hp <= 0)
                     cnt++;
-            return cnt;
-        }
-        int answer = 0;
-        if (E[index].hp <= 0)
-            return bruteForce(index+1);
-        else {
-            for (int i = 0; i < N; i++) {
-                if (i == index) continue;
-                if (E[i].hp >= 0) {
-                    E[i].hp -= E[index].weight;
-                    E[index].hp -= E[i].weight;
-                    answer = Math.max(answer, bruteForce(index + 1));
-                    E[i].hp += E[index].weight;
-                    E[index].hp += E[i].weight;
-                }
             }
+            answer = Math.max(answer, cnt);
+            return;
         }
-        return Math.max(answer, bruteForce(index+1));
+        if (eggs[index].hp <= 0)
+            select(index+1);
+        else {
+            boolean ok = false;
+            for (int i=0; i<eggs.length; i++) {
+                if (index == i) continue;
+                if (eggs[i].hp <= 0) continue;
+                ok = true;
+                Egg e1 = eggs[index];
+                Egg e2 = eggs[i];
+                e1.hp -= e2.weight;
+                e2.hp -= e1.weight;
+                select(index+1);
+                e1.hp += e2.weight;
+                e2.hp += e1.weight;
+            }
+            if (!ok)
+                select(index+1);
+        }
     }
 
     private static class Egg {
-        private int hp;
-        private int weight;
+        int weight;
+        int hp;
 
         public Egg(int hp, int weight) {
             this.hp = hp;
             this.weight = weight;
-        }
-
-        @Override
-        public String toString() {
-            return "Egg{" +
-                    "hp=" + hp +
-                    ", weight=" + weight +
-                    '}';
         }
     }
 }
