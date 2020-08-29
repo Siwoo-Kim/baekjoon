@@ -7,7 +7,11 @@ public enum Algorithm {
     RABIN_KARP,
     DFS, BFS, UNION_FIND,
     DP,
+    TREE,
+    DNC,
+    GREEDY,
+    BACK_TRACKING,
     BRUTE_FORCE,
     PERMUTATION,
-    COMBINATION
+    COMBINATION,
 }
