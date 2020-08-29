@@ -1,7 +1,14 @@
 package baekjoon.p9000;
 
+import util.Algorithm;
+import util.Tip;
+import util.Used;
+
 import java.util.Scanner;
 
+@Used(Algorithm.DP)
+@Tip("if D[i] = the number of case to make i" +
+    "D[i] = D[i-1] + D[i-2] + D[i-3]")
 public class P9095 {
     private static Scanner scanner = new Scanner(System.in);
     private static final int MAX = 11;
