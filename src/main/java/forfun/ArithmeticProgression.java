@@ -11,7 +11,8 @@ public abstract class ArithmeticProgression {
     }
     
     public int sum(int n) {
-        return n * (nth(1) + nth(n)) / 2;
+        //return n * (nth(1) + nth(n)) / 2;
+        return n * (2 * nth(1) + (n - 1) * commonDifference()) / 2;
     }
 
     public static void main(String[] args) {
